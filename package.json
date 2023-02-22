@@ -1,0 +1,28 @@
+{
+  "name": "fit-parser",
+  "version": "0.1.0",
+  "description": "A simple and useful node.js tool written in C++/JS using Node-API for decode/encode your FIT files.",
+  "main": "./test/index.js",
+  "gypfile": true,
+  "scripts": {
+    "build": "node-gyp build && node ./scripts/post.js",
+    "build+": "node-gyp build && node ./scripts/post.js && node ./test/index.js",
+    "rebuild": "node-gyp rebuild && node ./scripts/post.js",
+    "rebuild+": "node-gyp rebuild && node ./scripts/post.js && node ./test/index.js",
+    "start": "node ./test/index.js",
+    "clean": "node-gyp clean"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Samuele Scatena",
+  "license": "ISC",
+  "homepage": "https://gitlab.com/zanzarone/fit-parser#README",
+  "dependencies": {
+    "cli-color": "^2.0.1",
+    "moment": "^2.29.1",
+    "nan": "^2.14.0",
+    "node-addon-api": "^4.2.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
