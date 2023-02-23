@@ -1,0 +1,1198 @@
+{
+  "activity": {
+    "event": { "count": 1, "num": 3, "offset": 0, "scale": 1, "value": 26 },
+    "event_type": { "count": 1, "num": 4, "offset": 0, "scale": 1, "value": 1 },
+    "local_timestamp": { "count": 1, "num": 5, "offset": 0, "scale": 1, "value": 702926691 },
+    "num": 34,
+    "num_sessions": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 1 },
+    "timestamp": { "count": 1, "num": 253, "offset": 0, "scale": 1, "value": 702941091 },
+    "total_timer_time": {
+      "count": 1,
+      "num": 0,
+      "offset": 0,
+      "scale": 1000,
+      "units": "s",
+      "value": 13749
+    },
+    "type": { "count": 1, "num": 2, "offset": 0, "scale": 1, "value": 0 }
+  },
+  "event": {
+    "msgs": [
+      {
+        "data": { "count": 1, "num": 3, "offset": 0, "scale": 1, "value": 0 },
+        "event": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 0 },
+        "event_group": { "count": 1, "num": 4, "offset": 0, "scale": 1, "value": 0 },
+        "event_type": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 0 },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940946
+        }
+      },
+      {
+        "data": { "count": 1, "num": 3, "offset": 0, "scale": 1, "value": 0 },
+        "event": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 0 },
+        "event_group": { "count": 1, "num": 4, "offset": 0, "scale": 1, "value": 0 },
+        "event_type": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 4 },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940959
+        }
+      },
+      {
+        "data": { "count": 1, "num": 3, "offset": 0, "scale": 1, "value": 1 },
+        "event": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 8 },
+        "event_group": { "count": 1, "num": 4, "offset": 0, "scale": 1, "value": 1 },
+        "event_type": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 9 },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702941091
+        }
+      }
+    ],
+    "num": 21
+  },
+  "file_creator": {
+    "num": 49,
+    "software_version": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 240 }
+  },
+  "file_id": {
+    "manufacturer": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 15 },
+    "num": 0,
+    "product": { "count": 1, "num": 2, "offset": 0, "scale": 1, "value": 1 },
+    "serial_number": { "count": 1, "num": 3, "offset": 0, "scale": 1, "value": 2147483647 },
+    "time_created": { "count": 1, "num": 4, "offset": 0, "scale": 1, "value": 702940946 },
+    "type": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 4 }
+  },
+  "lap": {
+    "avg_speed": {
+      "count": 1,
+      "num": 13,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 417
+    },
+    "end_position_lat": {
+      "count": 1,
+      "num": 5,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": 495280402
+    },
+    "end_position_long": {
+      "count": 1,
+      "num": 6,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": -872697257
+    },
+    "enhanced_avg_speed": {
+      "count": 1,
+      "num": 110,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 417
+    },
+    "enhanced_max_speed": {
+      "count": 1,
+      "num": 111,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 368
+    },
+    "event": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 9 },
+    "event_type": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 1 },
+    "lap_trigger": { "count": 1, "num": 24, "offset": 0, "scale": 1, "value": 7 },
+    "max_speed": {
+      "count": 1,
+      "num": 14,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 368
+    },
+    "message_index": { "count": 1, "num": 254, "offset": 0, "scale": 1, "value": 0 },
+    "num": 19,
+    "sport": { "count": 1, "num": 25, "offset": 0, "scale": 1, "value": 1 },
+    "start_position_lat": {
+      "count": 1,
+      "num": 3,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": 495280430
+    },
+    "start_position_long": {
+      "count": 1,
+      "num": 4,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": -872696681
+    },
+    "start_time": { "count": 1, "num": 2, "offset": 0, "scale": 1, "value": 702940946 },
+    "timestamp": {
+      "count": 1,
+      "num": 253,
+      "offset": 0,
+      "scale": 1,
+      "units": "s",
+      "value": 702941091
+    },
+    "total_ascent": { "count": 1, "num": 21, "offset": 0, "scale": 1, "units": "m", "value": 0 },
+    "total_calories": { "count": 1, "num": 11, "offset": 0, "scale": 1, "units": "kcal", "value": 0 },
+    "total_descent": { "count": 1, "num": 22, "offset": 0, "scale": 1, "units": "m", "value": 0 },
+    "total_distance": { "count": 1, "num": 9, "offset": 0, "scale": 100, "units": "m", "value": 573 },
+    "total_elapsed_time": {
+      "count": 1,
+      "num": 7,
+      "offset": 0,
+      "scale": 1000,
+      "units": "s",
+      "value": 13749
+    },
+    "total_fat_calories": { "count": 1, "num": 12, "offset": 0, "scale": 1, "units": "kcal", "value": 0 },
+    "total_timer_time": {
+      "count": 1,
+      "num": 8,
+      "offset": 0,
+      "scale": 1000,
+      "units": "s",
+      "value": 13749
+    }
+  },
+  "record": {
+    "msgs": [
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 2
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280430
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696681
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940946
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 2
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280430
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696680
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940947
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 2
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280430
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696680
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940948
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 21
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280441
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696702
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940949
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 28
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280448
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696711
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940950
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 35
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280454
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696718
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940951
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 41
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280458
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696724
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940952
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 114
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280503
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696812
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 0
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940953
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 185
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 92
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280525
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872696908
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 92
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940954
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 275
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 152
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280558
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872697028
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 152
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940955
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 351
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 209
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280588
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872697129
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 209
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940956
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 422
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 262
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280554
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872697223
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 262
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940957
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 493
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 307
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280479
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872697203
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 307
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940958
+        }
+      },
+      {
+        "altitude": {
+          "count": 1,
+          "num": 2,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "distance": {
+          "count": 1,
+          "num": 5,
+          "offset": 0,
+          "scale": 100,
+          "units": "m",
+          "value": 573
+        },
+        "enhanced_altitude": {
+          "count": 1,
+          "num": 78,
+          "offset": 500,
+          "scale": 5,
+          "units": "m",
+          "value": 3891
+        },
+        "enhanced_speed": {
+          "count": 1,
+          "num": 73,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 368
+        },
+        "position_lat": {
+          "count": 1,
+          "num": 0,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": 495280402
+        },
+        "position_long": {
+          "count": 1,
+          "num": 1,
+          "offset": 0,
+          "scale": 1,
+          "units": "semicircles",
+          "value": -872697257
+        },
+        "speed": {
+          "count": 1,
+          "num": 6,
+          "offset": 0,
+          "scale": 1000,
+          "units": "m/s",
+          "value": 368
+        },
+        "timestamp": {
+          "count": 1,
+          "num": 253,
+          "offset": 0,
+          "scale": 1,
+          "units": "s",
+          "value": 702940959
+        }
+      }
+    ],
+    "num": 20
+  },
+  "session": {
+    "avg_speed": {
+      "count": 1,
+      "num": 14,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 417
+    },
+    "enhanced_avg_speed": {
+      "count": 1,
+      "num": 124,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 417
+    },
+    "enhanced_max_speed": {
+      "count": 1,
+      "num": 125,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 368
+    },
+    "event": { "count": 1, "num": 0, "offset": 0, "scale": 1, "value": 9 },
+    "event_type": { "count": 1, "num": 1, "offset": 0, "scale": 1, "value": 1 },
+    "first_lap_index": { "count": 1, "num": 25, "offset": 0, "scale": 1, "value": 0 },
+    "max_speed": {
+      "count": 1,
+      "num": 15,
+      "offset": 0,
+      "scale": 1000,
+      "units": "m/s",
+      "value": 368
+    },
+    "message_index": { "count": 1, "num": 254, "offset": 0, "scale": 1, "value": 0 },
+    "num": 18,
+    "num_laps": { "count": 1, "num": 26, "offset": 0, "scale": 1, "value": 1 },
+    "sport": { "count": 1, "num": 5, "offset": 0, "scale": 1, "value": 1 },
+    "start_position_lat": {
+      "count": 1,
+      "num": 3,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": 495280430
+    },
+    "start_position_long": {
+      "count": 1,
+      "num": 4,
+      "offset": 0,
+      "scale": 1,
+      "units": "semicircles",
+      "value": -872696681
+    },
+    "start_time": { "count": 1, "num": 2, "offset": 0, "scale": 1, "value": 702940946 },
+    "sub_sport": { "count": 1, "num": 6, "offset": 0, "scale": 1, "value": 0 },
+    "timestamp": {
+      "count": 1,
+      "num": 253,
+      "offset": 0,
+      "scale": 1,
+      "units": "s",
+      "value": 702941091
+    },
+    "total_ascent": { "count": 1, "num": 22, "offset": 0, "scale": 1, "units": "m", "value": 0 },
+    "total_calories": { "count": 1, "num": 11, "offset": 0, "scale": 1, "units": "kcal", "value": 0 },
+    "total_descent": { "count": 1, "num": 23, "offset": 0, "scale": 1, "units": "m", "value": 0 },
+    "total_distance": { "count": 1, "num": 9, "offset": 0, "scale": 100, "units": "m", "value": 573 },
+    "total_elapsed_time": {
+      "count": 1,
+      "num": 7,
+      "offset": 0,
+      "scale": 1000,
+      "units": "s",
+      "value": 13749
+    },
+    "total_fat_calories": { "count": 1, "num": 13, "offset": 0, "scale": 1, "units": "kcal", "value": 0 },
+    "total_timer_time": {
+      "count": 1,
+      "num": 8,
+      "offset": 0,
+      "scale": 1000,
+      "units": "s",
+      "value": 13749
+    },
+    "trigger": { "count": 1, "num": 28, "offset": 0, "scale": 1, "value": 0 }
+  }
+}

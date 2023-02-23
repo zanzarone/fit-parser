@@ -16,7 +16,7 @@ Encoder::Encoder(Napi::Env &env,std::string filePath, std::string jsonFileString
 }
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, Buffer<uint8_t> &data, Object&options, Function& callback) : Worker(env, callback, &options) {
-   this->source = Source::MEMEORY;
+   this->source = Source::MEMORY;
    this->bytesStream = new BytesStream();
    this->bytesStream->dataLength = data.Length();
    this->bytesStream->dataPtr = data.Data();
@@ -33,7 +33,7 @@ Encoder::Encoder(Napi::Env &env,std::string filePath, std::string jsonFileString
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, Buffer<uint8_t> &data, Object&options) : Worker(env, &options)
 {
-   this->source = Source::MEMEORY;
+   this->source = Source::MEMORY;
    this->bytesStream = new BytesStream();
    this->bytesStream->dataLength = data.Length();
    this->bytesStream->dataPtr = data.Data();
@@ -87,111 +87,6 @@ void Encoder::EnumerateFields(fit::Mesg * fitMesg, JSON fields)
    }
 }
 
-// void Encoder::Execute() 
-// {
-//    fit::Encode encode( fit::ProtocolVersion::V10 );
-//    std::fstream file;
-//    file.open(this->fileStream->filePath, std::ios::in | std::ios::out | std::ios::binary | std::ios::trunc);
-//    if (!file.is_open())
-//    {
-//       const std::string error ="Cannot open file at path:" + this->fileStream->filePath ;//+ e.what();
-//       Worker::SetCustomError(StatusCode::COULD_NOT_OPEN,error);
-//       this->SetError(error);
-//       return;
-//    }
-//    JSON fileObject;
-//    try
-//    {
-//       switch(this->source)
-//       {
-//          case Source::FILE: {
-//             // parsing input with a syntax error
-//             fileObject = JSON::parse(this->jsonFileString);
-//             break;
-//          }
-//          case Source::MEMEORY: {
-//             std::vector<uint8_t> buffer;
-//             for (int i = 0; i < this->bytesStream->dataLength; ++i)
-//             {
-//                uint8_t value = *(this->bytesStream->dataPtr + i);
-//                buffer.push_back(value);
-//             }
-//             this->bytesStream->bytes = new std::istrstream(reinterpret_cast<const char*>(buffer.data()), buffer.size()); 
-//             fileObject = JSON::parse(*this->bytesStream->bytes);
-//             break;
-//          }
-//       }
-//    }
-//    catch (JSON::parse_error& e)
-//    {
-//       const std::string error = "Malformed string. " + std::string(e.what()) ;//+ e.what();
-//       Worker::SetCustomError(StatusCode::JSON_PARSE_EXCEPTION,error);
-//       this->SetError(error);
-//       return;
-//    }   
-//    encode.Open(file);
-
-//    for (auto message = fileObject.begin(); message != fileObject.end(); ++message)
-//    {
-//       // std::cout << "key: " << message.key() << "\n\n\n" << "value:" << message.value() << "\n\n\n";
-//       // std::cout << "key: " << message.key() << "\n\n\n";
-
-//       JSON value = message.value();
-//    // std::cout << "CCCCC" << std::endl;
-//       if( !value.contains("num") ) 
-//       { 
-//          /// il json non contiene un messaggio con local num.
-//          /// ritorno cmq un errore.
-//          /// TODO - Posso provare a creare il messaggio dal nome! NOT IMPLEMENTED
-//          Worker::SetCustomWarnings(EncoderWarningCodes::JSON_MESG_WITHOUT_LOCAL_NUM, "No local num specified for message " + message.key() );
-//          continue;
-//       }
-//          // std::cout << "1" << std::endl;
-
-//       int mesgNum = value["num"];
-//          // std::cout << "2" << std::endl;
-//       std::string msgName = message.key();
-//          // std::cout << "3" << std::endl;
-//       std::string stringNum = std::to_string(mesgNum);
-//          // std::cout << "4" << std::endl;
-//       if(this->SkipMessage(mesgNum))
-//          continue;
-//       /// ora cancello la chiave local num, che non é un field ma semplicemente un numer.(ho preso il valore sopra
-//       /// per costruire il nmessaggio fit)
-//       value.erase("num");
-//       /// se la chiave e' di tipo <mesg> allora il campo contiene
-//       /// una collezione di messaggi
-//       if( value.contains("msgs") ) 
-//       {
-//          /// il messaggio e' multiplo, prendo array dei messaggi
-//          JSON mesgs  = value["msgs"];
-//          for (auto message = mesgs.begin(); message != mesgs.end(); ++message)
-//          {
-//             JSON fields = message.value();
-//             fit::Mesg fitMesg(mesgNum);
-//             this->EnumerateFields(&fitMesg, fields);
-//             encode.Write(fitMesg);
-//          }
-//       }
-//       else {
-//          /// altrimenti contiene un messaggio singolo.
-//          fit::Mesg fitMesg(mesgNum);
-//          this->EnumerateFields(&fitMesg, value);
-//          encode.Write(fitMesg);
-//       }
-//    }
-//    if (!encode.Close())
-//    {
-//    // std::cout << "AD" << std::endl;
-//       const std::string error ="Error closing encode"  ;//+ e.what();
-//       Worker::SetCustomError(StatusCode::ENCODE_CLOSE_EXCEPTION,error);
-//       this->SetError(error);
-//       return;
-//    }
-//    // std::cout << "C" << std::endl;
-//    file.close();
-// }
-
 void Encoder::Execute() 
 {
    fit::Encode encode( fit::ProtocolVersion::V10 );
@@ -214,7 +109,7 @@ void Encoder::Execute()
             fileObject = JSON::parse(this->jsonFileString);
             break;
          }
-         case Source::MEMEORY: {
+         case Source::MEMORY: {
             std::vector<uint8_t> buffer;
             int length = (int)this->bytesStream->dataLength;
             for (int i = 0; i < length; ++i)
@@ -312,7 +207,7 @@ void Encoder::OnOK()
 
 void Encoder::OnError(const Error& e)
 {
-   // std::cout << "Encoder OnError()" << std::endl;
+   std::cout << "Encoder OnError()" << std::endl;
    MyError error = Worker::GetError();
    Object jsError = Object::New(Env());
    jsError.Set("code", (int)error.code);
@@ -333,7 +228,7 @@ void Encoder::Destroy()
             delete this->fileStream;
             /// non devo fare niente
             break;
-        case Source::MEMEORY: 
+        case Source::MEMORY: 
             // this->bytesStream->dataPtr non serve grazie al UNref viene deallocata da GC di Javascropt
             this->bytesStream->dataRef.Unref();
             delete this->bytesStream->bytes;
@@ -342,27 +237,3 @@ void Encoder::Destroy()
     }
     Worker::Destroy();
 }
-
-// void Encoder::OnWorkComplete(Napi::Env env, napi_status status){
-//    //  std::cout << std::hex << "Encoder :: OnWorkComplete" << std::endl;
-//     MyError error = Worker::GetError();
-//     switch(error.code){
-//         case StatusCode::OK:{
-//             JSON warnings = Worker::GetWarnings();
-//            if(warnings.empty()){
-//                Callback().Call({Env().Null(), Env().Null()});
-//             }else{
-//                Object jsWarn = Object::New(Env());
-//                jsWarn.Set("warnings", warnings.dump());
-//                Callback().Call({Env().Null(), jsWarn});
-//             }
-//             break;
-//         }
-//         default:{
-//             Object jsError = Object::New(Env());
-//             jsError.Set("code", (int)error.code);
-//             jsError.Set("message", error.message);
-//             Callback().Call({ jsError , Env().Null()});
-//         }
-//     }
-// }

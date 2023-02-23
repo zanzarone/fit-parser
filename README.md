@@ -13,6 +13,7 @@ The aim of this project is to have an up-to-date and fully customizable parser. 
 3. [Development](#3-development)
 4. [Deployment](#4-deployment)
 5. [Run](#5-run)
+6. [ToDo](#6-todo)
 
 ---
 
@@ -202,6 +203,26 @@ The complete list is visible in the header ![a](res/icons8-file-16.png) `fit_pro
 
 ---
 
+### ![a](res/icons8-parallel-workflow-16.png) Async/Await
+
+All the decode/encode functions above, have the corresponding _awaitable_ version using the suffix **Async**:
+
+```js
+try {
+  const result = await fitModule.decodeBufferAsync(...);
+  const fit = JSON.parse(result);
+  ...
+} catch (err) {
+  ...
+}
+```
+
+In folder ![a](res/icons8-directory-16.png) **example** there are different types of FIT&copy; files you can choose to test the module.
+
+## 6) Under development
+
+![a](res/icons8-error-16.png) <span style="font-weight:bold; color: #FCC419;">Encode functionalities are now in development, are can not work as expected.</span>
+
 ### ![a](res/icons8-download-16-2.png) Encode object
 
 ```js
@@ -272,25 +293,13 @@ fitModule.defines.FILE_CREATOR; // = 1
 
 The complete list is visible in the header ![a](res/icons8-file-16.png) `fit_profile.hpp`.
 
-### ![a](res/icons8-parallel-workflow-16.png) Async/Await
-
-All the decode/encode functions above, have the corresponding _awaitable_ version using the suffix **Async**:
-
-```js
-try {
-  const result = await fitModule.decodeBufferAsync(...);
-  const fit = JSON.parse(result);
-  ...
-} catch (err) {
-  ...
-}
-```
-
-In folder ![a](res/icons8-directory-16.png) **example** there are different types of FIT&copy; files you can choose to test the module.
+---
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+---
 
 ## Attributions
 

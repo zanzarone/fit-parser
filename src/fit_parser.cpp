@@ -20,7 +20,7 @@ Napi::String FITParser::DecodeFileWrapped(const Napi::CallbackInfo& info)
         Napi::TypeError::New(env, "Missing file path").ThrowAsJavaScriptException();
     if( !info[1].IsFunction() )
         Napi::TypeError::New(env, "Invalid/missing callback").ThrowAsJavaScriptException();
-    if( !info[2].IsNull() ){
+    if( info.Length() == 3 ){  
         if( !info[2].IsObject() )
             Napi::TypeError::New(env, "Invalid options parameter").ThrowAsJavaScriptException();
         options = info[2].As<Napi::Object>();
@@ -41,7 +41,7 @@ Napi::Value FITParser::DecodeFileAsyncWrapped(const Napi::CallbackInfo& info)
         Napi::TypeError::New(env, "Wrong parameters number").ThrowAsJavaScriptException();
     if( !info[0].IsString() )
         Napi::TypeError::New(env, "Missing file path").ThrowAsJavaScriptException();
-    if( !info[1].IsNull() ){  
+    if( info.Length() == 2 ){  
         if( !info[1].IsObject() )
             Napi::TypeError::New(env, "2nd arg must be an object of options").ThrowAsJavaScriptException();
         options = info[1].As<Napi::Object>();
@@ -63,7 +63,7 @@ Napi::String FITParser::DecodeBufferWrapped(const Napi::CallbackInfo& info)
         Napi::TypeError::New(env, "Missing binary fit file").ThrowAsJavaScriptException();
     if( !info[1].IsFunction() )
         Napi::TypeError::New(env, "Invalid/missing callback").ThrowAsJavaScriptException();
-    if( !info[2].IsNull() ){
+    if( info.Length() == 3 ){  
         if( !info[2].IsObject() )
             Napi::TypeError::New(env, "Invalid options parameter").ThrowAsJavaScriptException();
         options = info[2].As<Napi::Object>();
@@ -80,11 +80,11 @@ Napi::Value FITParser::DecodeBufferAsyncWrapped(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::Object options = Object::New(env);
-    if ( info.Length() < 1 )
+    if ( info.Length() < 1 || info.Length() > 2)
         Napi::TypeError::New(env, "Wrong parameters number").ThrowAsJavaScriptException();
     if( !info[0].IsBuffer() )
         Napi::TypeError::New(env, "Missing binary fit file").ThrowAsJavaScriptException();
-    if( !info[1].IsNull() ){  
+    if( info.Length() == 2 ){  
         if( !info[1].IsObject() )
             Napi::TypeError::New(env, "2nd arg must be an object of options").ThrowAsJavaScriptException();
         options = info[1].As<Napi::Object>();
@@ -112,7 +112,7 @@ Napi::String FITParser::EncodeFileWrapped(const Napi::CallbackInfo& info)
     if( !info[2].IsFunction() )
         Napi::TypeError::New(env, "Invalid/missing callback").ThrowAsJavaScriptException();
 
-    if( !info[3].IsObject() ){
+    if( info.Length() == 4 ){  
         if( !info[3].IsObject() )
             Napi::TypeError::New(env, "Invalid options parameter").ThrowAsJavaScriptException();
         options = info[3].As<Napi::Object>();
@@ -130,13 +130,13 @@ Napi::Value FITParser::EncodeFileAsyncWrapped(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::Object options = Object::New(env);
-    if (info.Length() < 2 )
+    if (info.Length() < 2 || info.Length() > 3)
         Napi::TypeError::New(env, "Wrong parameters number").ThrowAsJavaScriptException();
     if(!info[0].IsString())
         Napi::TypeError::New(env, "Missing file path").ThrowAsJavaScriptException();
     if(!info[1].IsString())
         Napi::TypeError::New(env, "Missing json string of fit file").ThrowAsJavaScriptException();
-    if(!info[2].IsNull()){  
+    if(info.Length() == 3){  
         if(!info[2].IsObject())
             Napi::TypeError::New(env, "2nd arg must be an object of options").ThrowAsJavaScriptException();
         options = info[2].As<Napi::Object>();
@@ -165,7 +165,7 @@ Napi::String FITParser::EncodeBufferWrapped(const Napi::CallbackInfo& info)
     if( !info[2].IsFunction() )
         Napi::TypeError::New(env, "Invalid/missing callback").ThrowAsJavaScriptException();
 
-    if( !info[3].IsNull() ){
+    if( info.Length() == 4 ){  
         if( !info[3].IsObject() )
             Napi::TypeError::New(env, "Invalid options parameter").ThrowAsJavaScriptException();
         options = info[3].As<Napi::Object>();
@@ -189,7 +189,7 @@ Napi::Value FITParser::EncodeBufferAsyncWrapped(const Napi::CallbackInfo& info)
         Napi::TypeError::New(env, "Missing file path").ThrowAsJavaScriptException();
     if(!info[1].IsBuffer())
         Napi::TypeError::New(env, "Missing binary fit file").ThrowAsJavaScriptException();
-    if(!info[2].IsNull()){  
+    if( info.Length() == 3 ){  
         if(!info[2].IsObject())
             Napi::TypeError::New(env, "2nd arg must be an object of options").ThrowAsJavaScriptException();
         options = info[1].As<Napi::Object>();

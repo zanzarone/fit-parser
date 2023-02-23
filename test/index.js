@@ -9,8 +9,9 @@ const debugMsg = clc.xterm(14);
 const successMsg = clc.xterm(47);
 const prompt = require("prompt-sync")({ sigint: true });
 
-const TEST_FILE = "./examples/Settings.fit";
-const TEST_FILE2 = "./examples/MonitoringFile.fit";
+const TEST_FILE1 = "./examples/Settings.fit";
+const TEST_FILE2 = "./examples/Activity.fit";
+const TEST_FILE3 = "./examples/Activity.json";
 
 function askUser() {
   let select = prompt("Choose an option: ");
@@ -51,11 +52,11 @@ function showMenu() {
 
 function opt1Callback(err, fitString) {
   if (err) {
-    console.log(errorsMsg(`Errore decoding ${TEST_FILE}: ${err.message}(${err.code})`));
+    console.log(errorsMsg(`Errore decoding ${TEST_FILE1}: ${err.message}(${err.code})`));
   } else {
     try {
       const FIT = JSON.parse(fitString);
-      console.log(successMsg(`Successfully decoded ${TEST_FILE}:`));
+      console.log(successMsg(`Successfully decoded ${TEST_FILE1}:`));
       console.dir(FIT, { depth: null });
     } catch (error) {
       console.log(error);
@@ -65,8 +66,8 @@ function opt1Callback(err, fitString) {
 }
 
 function opt1() {
-  console.log("Decoding file", TEST_FILE);
-  fitModule.decodeFile(TEST_FILE, opt1Callback, { rawValues: false });
+  console.log("Decoding file", TEST_FILE1);
+  fitModule.decodeFile(TEST_FILE1, opt1Callback, { rawValues: false });
 }
 
 async function opt2() {
@@ -85,14 +86,21 @@ async function opt2() {
 
 function opt3() {}
 
-function opt4() {
-  const path = "../examples/Settings.json";
-  console.log("Encoding file", path);
+async function opt4() {
+  console.log("Encoding file", TEST_FILE3);
   try {
-    const data = fs.readFileSync(path, { encoding: "utf-8" });
-    // fitModule.encodeJSONToFileAsync(path, data);
+    const data = fs.readFileSync(TEST_FILE3, "utf-8");
+    // console.log("1", data);
+    const lll = await fitModule.encodeJSONToFileAsync("./output/pippo.fit", data);
+    // console.log("1", lll);
+    const reopen = fs.readFileSync("./output/pippo.fit", { encoding: "binary", flag: "r" });
+    // console.log("1", reopen);
+    const result = await fitModule.decodeBufferAsync(reopen);
+    // console.log("1");
+    console.dir(result, { depth: null });
+    console.log("1");
   } catch (error) {
-    console.log(error);
+    console.log("aaaa", error);
   }
 }
 

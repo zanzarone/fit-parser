@@ -6,7 +6,7 @@
 #include "../configuration/utility.hpp"
 
 Decoder::Decoder(Napi::Env &env, Buffer<uint8_t> &data, Object&options) : Worker(env, &options){
-    this->source = Source::MEMEORY;
+    this->source = Source::MEMORY;
     this->bytesStream = new BytesStream();
     this->bytesStream->dataLength = data.Length();
     this->bytesStream->dataPtr = data.Data();
@@ -21,7 +21,7 @@ Decoder::Decoder(Napi::Env &env, std::string filepath,Object&options, Function &
 }
 
 Decoder::Decoder(Napi::Env &env, Buffer<uint8_t> &data,Object&options,  Function &callback) : Worker(env, callback, &options) {
-    this->source = Source::MEMEORY;
+    this->source = Source::MEMORY;
     this->bytesStream = new BytesStream();
     this->bytesStream->dataLength = data.Length();
     this->bytesStream->dataPtr = data.Data();
@@ -229,7 +229,7 @@ void Decoder::Execute()
             this->Parse(this->fileStream->file);
             break;
         }
-        case Source::MEMEORY:{
+        case Source::MEMORY:{
             std::vector<uint8_t> buffer;
             int length = (int)this->bytesStream->dataLength;
             for (int i = 0; i < length; ++i)
@@ -282,7 +282,7 @@ void Decoder::Destroy()
             delete this->fileStream->file;
             delete this->fileStream;
             break;
-        case Source::MEMEORY: 
+        case Source::MEMORY: 
             // this->bytesStream->dataPtr non serve grazie al UNref viene deallocata da GC di Javascropt
             this->bytesStream->dataRef.Unref();
             delete this->bytesStream->bytes;

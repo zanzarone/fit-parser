@@ -20,7 +20,7 @@ class Worker : public AsyncWorker
 public:
     enum Source {
         FILE    = 0,
-        MEMEORY,
+        MEMORY,
     };
     //
     struct Options {
