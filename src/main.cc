@@ -1,9 +1,9 @@
 #include <napi.h>
-#include "fit_module.hpp"
+#include "fit_parser.hpp"
 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports)
 {
-    return FITModule::Init(env, exports);
+    return FITParser::Init(env, exports);
 }
 
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, InitAll)

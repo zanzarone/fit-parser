@@ -68,15 +68,15 @@ The core of the addon is inside the ![a](res/icons8-directory-16.png) **src** fo
 - ![a](res/icons8-directory-16.png) **fit** - source code of the FIT&copy; SDK<sup>1,2</sup>.
 - ![a](res/icons8-directory-16.png) **nlohmann** a wonderful C++ class for handle JSON objects. More information at [nlohmann/json](https://github.com/nlohmann/json).
 - ![a](res/icons8-directory-16.png) **worker** - the async N-API C++ class for schedule the parsing process to the background avoiding Node's main loop.
-- ![a](res/icons8-file-16.png) **fit_module.cpp/fit_module.hpp** - N-API wrapper class that expose all the addon functionalities.
+- ![a](res/icons8-file-16.png) **fit_parser.cpp/fit_parser.hpp** - N-API wrapper class that expose all the addon functionalities.
 - ![a](res/icons8-file-16.png) **main.cpp** - The entry point of the module.
 
 FIT&copy; SDK<sup>1</sup>: The version used is _21.67_. To update to the latest version, simply download [SDK](https://developer.garmin.com/fit/download/) from Garmin&copy; website, uncompress it, and replace all the **source** files inside folder ![a](res/icons8-directory-16.png) **fit** with the _source_ files present into folder ![a](res/icons8-directory-16.png) **cpp** just downloaded.
 
 FIT&copy; SDK<sup>2</sup>: You're free(and encouraged) to use also custom FIT class. Only two things are mandatory to be able to use custom messages:
 
-- ![a](res/icons8-error-16.png) Custom files must be included in the ![a](res/icons8-directory-16.png) **fit** folder
-- ![a](res/icons8-error-16.png) They must be created with the officia tool ![a](res/icons8-wrench-16.png) **FitGen.exe** shipped with the SDK.
+- ![a](res/icons8-info-16.png) Custom files must be included in the ![a](res/icons8-directory-16.png) **fit** folder
+- ![a](res/icons8-info-16.png) They must be created with the officia tool ![a](res/icons8-wrench-16.png) **FitGen.exe** shipped with the SDK.
 
 ---
 
@@ -88,7 +88,7 @@ After the installation step you can build the addon module with the following co
 npm run build
 ```
 
-The command will produce the binary file inside the folder ![a](res/icons8-directory-16.png) <b>binary/{platform}/fit_module.node</b>.
+The command will produce the binary file inside the folder ![a](res/icons8-directory-16.png) <b>binary/{platform}/FITParser.node</b>.
 
 ### Other commands
 
@@ -127,7 +127,7 @@ Content of the ![a](res/icons8-directory-16.png) **scripts** folder:
 Include the module
 
 ```js
-const fitModule = require("fit_module.node");
+const fitModule = require("FITParser.node");
 ```
 
 ---
@@ -140,8 +140,8 @@ fitModule.decodeFile("filepath", [options], (err, result) => ...)
 
 Params:
 
-| Name     | Mandatory                     | Type         | Descriptions                          |
-| -------- | ----------------------------- | ------------ | ------------------------------------- |
+| Name     |           Mandatory           | Type         | Descriptions                          |
+| -------- | :---------------------------: | ------------ | ------------------------------------- |
 | filepath | ![a](res/icons8-done-16.png)  | _String_     | filepath of the FIT file to decode    |
 | options  | ![a](res/icons8-close-16.png) | _JSON array_ | see [decode options](#decode-options) |
 | callback | ![a](res/icons8-done-16.png)  | _Function_   | the callback function                 |
@@ -163,8 +163,8 @@ fitModule.decodeBuffer(buffer, [options], (err, result) => ...)
 
 Params:
 
-| Name     | Mandatory                     | Type         | Descriptions                            |
-| -------- | ----------------------------- | ------------ | --------------------------------------- |
+| Name     |           Mandatory           | Type         | Descriptions                            |
+| -------- | :---------------------------: | ------------ | --------------------------------------- |
 | buffer   | ![a](res/icons8-done-16.png)  | _Buffer_     | buffer object of the FIT file to decode |
 | options  | ![a](res/icons8-close-16.png) | _JSON array_ | see [decode options](#decode-options)   |
 | callback | ![a](res/icons8-done-16.png)  | _Function_   | the callback function                   |
@@ -210,8 +210,8 @@ fitModule.encodeFile("filepath", fitObj, [options], (err, result) => ...)
 
 Params:
 
-| Name     | Mandatory                     | Type          | Descriptions                                       |
-| -------- | ----------------------------- | ------------- | -------------------------------------------------- |
+| Name     |           Mandatory           | Type          | Descriptions                                       |
+| -------- | :---------------------------: | ------------- | -------------------------------------------------- |
 | filepath | ![a](res/icons8-done-16.png)  | _Buffer_      | representing the path where the file will be saved |
 | fitObj   | ![a](res/icons8-done-16.png)  | _JSON object_ | JSON object represent the .FIT file to be written  |
 | options  | ![a](res/icons8-close-16.png) | _JSON array_  | see [encode options](#encode-options)              |
@@ -236,8 +236,8 @@ fitModule.encodeBuffer("filepath", buffer, [options], (err, result) => ...)
 
 Params:
 
-| Name     | Mandatory                     | Type         | Descriptions                                       |
-| -------- | ----------------------------- | ------------ | -------------------------------------------------- |
+| Name     |           Mandatory           | Type         | Descriptions                                       |
+| -------- | :---------------------------: | ------------ | -------------------------------------------------- |
 | filepath | ![a](res/icons8-done-16.png)  | _Buffer_     | representing the path where the file will be saved |
 | buffer   | ![a](res/icons8-done-16.png)  | _Buffer_     | the\*Buffer object of the FIT file to encode       |
 | options  | ![a](res/icons8-close-16.png) | _JSON array_ | see [encode options](#encode-options)              |

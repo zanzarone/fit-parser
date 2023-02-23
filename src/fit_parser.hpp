@@ -1,6 +1,6 @@
 #include <napi.h>
 
-namespace FITModule
+namespace FITParser
 {
     /// Decode FIT from a File
     Napi::String DecodeFileWrapped(const Napi::CallbackInfo& info);

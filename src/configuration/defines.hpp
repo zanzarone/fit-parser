@@ -3,7 +3,7 @@
 /*
     DEFINES
 */
-#define VERSION "1.0.0.20230222153324"
+#define VERSION "1.0.0.20230222"
 #define SYSTEM_TIME_OFFSET_SEC 631065600    // Needed for conversion from UNIX time to FIT time (is in fit_date_time ma é privata)
 #define LEFT_RIGHT_BALANCE_100 100.0        // L/R Balance scale
 /*

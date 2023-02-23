@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "fit_module",
+        "target_name": "FITParser",
         "cflags!": [ "-fno-exceptions" ],
         "cflags_cc!": [ "-fno-exceptions" ],
         'xcode_settings': {
@@ -18,9 +18,6 @@
             # 
             "<!@(node -p \"require('fs').readdirSync('src/fit/').filter(f=>f.endsWith('.cpp')).map(f=>'src/fit/'+f).join(' ')\")",
             # 
-            #"<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.cpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
-            #"<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.hpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
-            # 
             "<!@(node -p \"require('fs').readdirSync('src/nlohmann/').filter(f=>f.endsWith('.cpp')).map(f=>'src/nlohmann/'+f).join(' ')\")",
             "<!@(node -p \"require('fs').readdirSync('src/nlohmann/').filter(f=>f.endsWith('.hpp')).map(f=>'src/nlohmann/'+f).join(' ')\")",
             # 
@@ -34,19 +31,15 @@
             "<!@(node -p \"require('fs').readdirSync('src/encode/').filter(f=>f.endsWith('.hpp')).map(f=>'src/encode/'+f).join(' ')\")",
             # 
             "src/main.cc",
-            "src/fit_module.hpp",
-            "src/fit_module.cpp",
+            "src/fit_parser.hpp",
+            "src/fit_parser.cpp",
         ],
         'include_dirs': [
-            # "<!(node -e \"require('nan')\")",
-            # "<!@(node -p \"require('nan').include\")",
             "<!@(node -p \"require('node-addon-api').include\")"
         ],
         "libraries": [ ],
-        # "libraries": [ "-Wl,-rpath, <(module_root_dir)/src/new_fit/libFitSdkCpp.a" ],
         'dependencies': [
             "<!(node -p \"require('node-addon-api').gyp\")"
         ],
-        # 'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ]
     }]
 }

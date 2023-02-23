@@ -11,7 +11,7 @@ console.log("=======================");
 
 function postBuild() {
   const releaseFolder = path.join(".", "build", "Release");
-  const files = fs.readdirSync(releaseFolder).filter((fn) => fn.startsWith("fit_module.node"));
+  const files = fs.readdirSync(releaseFolder).filter((fn) => fn.startsWith("FITParser.node"));
   if (!files || files.length <= 0) {
     console.log("=========  Error: no release candidate found ===========");
     return;
