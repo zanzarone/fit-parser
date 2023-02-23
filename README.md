@@ -13,7 +13,7 @@ The aim of this project is to have an up-to-date and fully customizable parser. 
 3. [Development](#3-development)
 4. [Deployment](#4-deployment)
 5. [Run](#5-run)
-6. [ToDo](#6-todo)
+6. [Under development](#6-under-development)
 
 ---
 
@@ -221,7 +221,7 @@ In folder ![a](res/icons8-directory-16.png) **example** there are different type
 
 ## 6) Under development
 
-![a](res/icons8-error-16.png) <span style="font-weight:bold; color: #FCC419;">Encode functionalities are now in development, are can not work as expected.</span>
+![Warning:Encode functionalities are now in development, and can not work as expected.](https://img.shields.io/badge/⚠%EF%B8%8E-Encode%20functionalities%20are%20now%20in%20development%20and%20can%20not%20work%20as%20expected.-red)
 
 ### ![a](res/icons8-download-16-2.png) Encode object
 
