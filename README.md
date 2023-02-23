@@ -1,4 +1,4 @@
-# FIT-Parser
+# ![a](res/logo1.png)
 
 A simple and useful `node.js` tool written in C++/JS using Node-API for decode/encode your FIT files.
 
@@ -288,23 +288,9 @@ try {
 
 In folder ![a](res/icons8-directory-16.png) **example** there are different types of FIT&copy; files you can choose to test the module.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-<!-- ## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc -->
 
 ## Attributions
 

@@ -18,8 +18,8 @@
             # 
             "<!@(node -p \"require('fs').readdirSync('src/fit/').filter(f=>f.endsWith('.cpp')).map(f=>'src/fit/'+f).join(' ')\")",
             # 
-            "<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.cpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
-            "<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.hpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
+            #"<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.cpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
+            #"<!@(node -p \"require('fs').readdirSync('src/tiny-aes/').filter(f=>f.endsWith('.hpp')).map(f=>'src/tiny-aes/'+f).join(' ')\")",
             # 
             "<!@(node -p \"require('fs').readdirSync('src/nlohmann/').filter(f=>f.endsWith('.cpp')).map(f=>'src/nlohmann/'+f).join(' ')\")",
             "<!@(node -p \"require('fs').readdirSync('src/nlohmann/').filter(f=>f.endsWith('.hpp')).map(f=>'src/nlohmann/'+f).join(' ')\")",
