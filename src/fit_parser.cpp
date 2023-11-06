@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 
+#include "fit/fit.hpp"
 #include "fit/fit_profile.hpp"
 #include "fit_parser.hpp"
 #include "decode/decoder.hpp" 
@@ -204,6 +205,25 @@ Napi::Value FITParser::EncodeBufferAsyncWrapped(const Napi::CallbackInfo& info)
 
 Napi::Object FITParser::FitDefinesWrapped(Napi::Env env)
 {
+    Object fitBaseTypes = Object::New(env);
+    fitBaseTypes.Set("FIT_ENUM_INVALID", FIT_ENUM_INVALID);
+    fitBaseTypes.Set("FIT_SINT8_INVALID", FIT_SINT8_INVALID);
+    fitBaseTypes.Set("FIT_UINT8_INVALID", FIT_UINT8_INVALID);
+    fitBaseTypes.Set("FIT_SINT16_INVALID", FIT_SINT16_INVALID);
+    fitBaseTypes.Set("FIT_UINT16_INVALID", FIT_UINT16_INVALID);
+    fitBaseTypes.Set("FIT_SINT32_INVALID", FIT_SINT32_INVALID);
+    fitBaseTypes.Set("FIT_UINT32_INVALID", FIT_UINT32_INVALID);
+    fitBaseTypes.Set("FIT_STRING_INVALID", FIT_STRING_INVALID);
+    fitBaseTypes.Set("FIT_FLOAT32_INVALID", FIT_FLOAT32_INVALID);
+    fitBaseTypes.Set("FIT_FLOAT64_INVALID", FIT_FLOAT64_INVALID);
+    fitBaseTypes.Set("FIT_UINT8Z_INVALID", FIT_UINT8Z_INVALID);
+    fitBaseTypes.Set("FIT_UINT16Z_INVALID", FIT_UINT16Z_INVALID);
+    fitBaseTypes.Set("FIT_UINT32Z_INVALID", FIT_UINT32Z_INVALID);
+    fitBaseTypes.Set("FIT_BYTE_INVALID", FIT_BYTE_INVALID);
+    fitBaseTypes.Set("FIT_SINT64_INVALID", FIT_SINT64_INVALID);
+    fitBaseTypes.Set("FIT_UINT64_INVALID", FIT_UINT64_INVALID);
+    fitBaseTypes.Set("FIT_UINT64Z_INVALID", FIT_UINT64Z_INVALID);
+    //
     Object msgsNum = Object::New(env);
     auto mesgs = fit::Profile::mesgs;
     int length = fit::Profile::MESG_INDEX::MESGS ;
@@ -215,6 +235,7 @@ Napi::Object FITParser::FitDefinesWrapped(Napi::Env env)
         msgsNum.Set(data, mesgs[i].num);
     }
     Object defines = Object::New(env);
+    defines.Set("FIT_BASE_TYPES", fitBaseTypes);
     defines.Set("FIT_MESG_NUM", msgsNum);
     defines.Set("SYSTEM_TIME_OFFSET_SEC", Napi::Number::New(env, SYSTEM_TIME_OFFSET_SEC));
     return defines;

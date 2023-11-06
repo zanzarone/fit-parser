@@ -5,3 +5,5 @@ build
 output
 binary
 .vscode
+fit_*
+.DS_Store

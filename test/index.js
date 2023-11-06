@@ -1,7 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const clc = require("cli-color");
-const fitModule = require(path.join(process.cwd(), "binary", process.platform, "FITParser.node"));
+const fitModule = require(path.join(
+  process.cwd(),
+  "binary",
+  process.platform,
+  "FITParser.node"
+));
 const titleMsg = clc.xterm(202).bgXterm(236).bold;
 const errorsMsg = clc.xterm(15).bgXterm(160).bold;
 const warningMsg = clc.xterm(0).bgXterm(226).bold;
@@ -9,7 +14,10 @@ const debugMsg = clc.xterm(14);
 const successMsg = clc.xterm(47);
 const prompt = require("prompt-sync")({ sigint: true });
 
-const TEST_FILE1 = "./examples/Settings.fit";
+// const TEST_FILE1 = "./examples/Settings.fit";
+// const TEST_FILE1 =
+//   "/Users/samuele/Projects/Node/uploadServerJS/data/uploads/5edef77d490838ce/Settings.fit";
+const TEST_FILE1 = "/Users/samuele/2023_05_15_09_50_55.fit";
 const TEST_FILE2 = "./examples/Activity.fit";
 const TEST_FILE3 = "./examples/Activity.json";
 
@@ -52,7 +60,9 @@ function showMenu() {
 
 function opt1Callback(err, fitString) {
   if (err) {
-    console.log(errorsMsg(`Errore decoding ${TEST_FILE1}: ${err.message}(${err.code})`));
+    console.log(
+      errorsMsg(`Errore decoding ${TEST_FILE1}: ${err.message}(${err.code})`)
+    );
   } else {
     try {
       const FIT = JSON.parse(fitString);
@@ -67,13 +77,18 @@ function opt1Callback(err, fitString) {
 
 function opt1() {
   console.log("Decoding file", TEST_FILE1);
-  fitModule.decodeFile(TEST_FILE1, opt1Callback, { rawValues: false });
+  fitModule.decodeFile(TEST_FILE1, opt1Callback, {
+    force: true,
+    rawValues: false,
+  });
 }
 
 async function opt2() {
   console.log("Decoding file - (async/await)", TEST_FILE2);
   try {
-    const fitString = await fitModule.decodeFileAsync(TEST_FILE2, { rawValues: true });
+    const fitString = await fitModule.decodeFileAsync(TEST_FILE2, {
+      rawValues: true,
+    });
     const FIT = JSON.parse(fitString);
     console.log(successMsg(`Successfully decoded ${TEST_FILE2}:`));
     console.dir(FIT, { depth: null });
@@ -91,9 +106,15 @@ async function opt4() {
   try {
     const data = fs.readFileSync(TEST_FILE3, "utf-8");
     // console.log("1", data);
-    const lll = await fitModule.encodeJSONToFileAsync("./output/pippo.fit", data);
+    const lll = await fitModule.encodeJSONToFileAsync(
+      "./output/pippo.fit",
+      data
+    );
     // console.log("1", lll);
-    const reopen = fs.readFileSync("./output/pippo.fit", { encoding: "binary", flag: "r" });
+    const reopen = fs.readFileSync("./output/pippo.fit", {
+      encoding: "binary",
+      flag: "r",
+    });
     // console.log("1", reopen);
     const result = await fitModule.decodeBufferAsync(reopen);
     // console.log("1");

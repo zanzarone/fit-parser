@@ -54,11 +54,12 @@ void Decoder::AddValueToJSONField(const fit::FieldBase &field, const fit::Profil
             {"offset", field.GetOffset()},
             {"count", field.GetNumValues()}
         }; 
+   
+        std::string units = field.GetUnits();
+        /// check if field 'unit' is empty. if so, we will skip
+        if( !units.empty() )
+            jsonField["units"] = units;
     }
-    std::string units = field.GetUnits();
-    /// check if field 'unit' is empty. if so, we will skip
-    if( !units.empty() )
-        jsonField["units"] = units;
     size_t len = (FIT_UINT8)field.GetNumValues();
     /// check if field is hex buffer
     if ( field.GetNumValues() > 1 && field.GetType() != FIT_BASE_TYPE_STRING )
@@ -69,8 +70,12 @@ void Decoder::AddValueToJSONField(const fit::FieldBase &field, const fit::Profil
             byteArray.push_back(static_cast<unsigned char>(field.GetUINT8Value(i)));
         /// we convert the byte array into an hex string
         std::string std_string = Utility::toHexString(byteArray);
-        jsonField["value"] = std_string;
-        jsonMesg->emplace(field.GetName(), jsonField);
+        if( this->options.rawValues ) { 
+            jsonField["value"] = std_string;
+            jsonMesg->emplace(field.GetName(), jsonField);
+        }else {
+            jsonMesg->emplace(field.GetName(), std_string);
+        }
     }
     else
     {
@@ -96,8 +101,12 @@ void Decoder::AddValueToJSONField(const fit::FieldBase &field, const fit::Profil
                 case FIT_BASE_TYPE_FLOAT64:
                 {
                     /// we compose byte per byte the numerical value
-                    jsonField["value"] = field.GetRawValue(i);
-                    jsonMesg->emplace(field.GetName(), jsonField);
+                    if( this->options.rawValues ) { 
+                        jsonField["value"] = field.GetRawValue(i);
+                        jsonMesg->emplace(field.GetName(), jsonField);
+                    }else {
+                        jsonMesg->emplace(field.GetName(), field.GetRawValue(i));
+                    }
                     break;
                 }   
                 case FIT_BASE_TYPE_STRING:
@@ -108,8 +117,12 @@ void Decoder::AddValueToJSONField(const fit::FieldBase &field, const fit::Profil
                     for (char c : w_string)
                         std_string += c;
                     
-                    jsonField["value"] = std_string;
-                    jsonMesg->emplace(field.GetName(), jsonField);
+                    if( this->options.rawValues ) { 
+                        jsonField["value"] = std_string;
+                        jsonMesg->emplace(field.GetName(), jsonField);
+                    }else {
+                        jsonMesg->emplace(field.GetName(), std_string);
+                    }
                     break;
                 }
                 default:
