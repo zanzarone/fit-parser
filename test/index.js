@@ -1,12 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const clc = require("cli-color");
-const fitModule = require(path.join(
-  process.cwd(),
-  "binary",
-  process.platform,
-  "FITParser.node"
-));
+const fitModule = require(path.join(process.cwd(), "binary", `FITParser-${process.platform}.node`));
 const titleMsg = clc.xterm(202).bgXterm(236).bold;
 const errorsMsg = clc.xterm(15).bgXterm(160).bold;
 const warningMsg = clc.xterm(0).bgXterm(226).bold;
@@ -17,7 +12,7 @@ const prompt = require("prompt-sync")({ sigint: true });
 // const TEST_FILE1 = "./examples/Settings.fit";
 // const TEST_FILE1 =
 //   "/Users/samuele/Projects/Node/uploadServerJS/data/uploads/5edef77d490838ce/Settings.fit";
-const TEST_FILE1 = "/Users/samuele/2023_05_15_09_50_55.fit";
+const TEST_FILE1 = "/Users/samuele/Settings.fit";
 const TEST_FILE2 = "./examples/Activity.fit";
 const TEST_FILE3 = "./examples/Activity.json";
 
@@ -60,9 +55,7 @@ function showMenu() {
 
 function opt1Callback(err, fitString) {
   if (err) {
-    console.log(
-      errorsMsg(`Errore decoding ${TEST_FILE1}: ${err.message}(${err.code})`)
-    );
+    console.log(errorsMsg(`Errore decoding ${TEST_FILE1}: ${err.message}(${err.code})`));
   } else {
     try {
       const FIT = JSON.parse(fitString);
@@ -106,10 +99,7 @@ async function opt4() {
   try {
     const data = fs.readFileSync(TEST_FILE3, "utf-8");
     // console.log("1", data);
-    const lll = await fitModule.encodeJSONToFileAsync(
-      "./output/pippo.fit",
-      data
-    );
+    const lll = await fitModule.encodeJSONToFileAsync("./output/pippo.fit", data);
     // console.log("1", lll);
     const reopen = fs.readFileSync("./output/pippo.fit", {
       encoding: "binary",

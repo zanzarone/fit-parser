@@ -5,6 +5,7 @@
   "main": "./test/index.js",
   "gypfile": true,
   "scripts": {
+    "solo": "node-gyp configure && node-gyp build",
     "build": "node-gyp build && node ./scripts/post.js",
     "build+": "node-gyp build && node ./scripts/post.js && node ./test/index.js",
     "rebuild": "node-gyp rebuild && node ./scripts/post.js",

@@ -18,11 +18,12 @@ function postBuild() {
   }
   const releaseFile = files.shift();
   let oldPath = path.resolve(path.join(releaseFolder, path.basename(releaseFile)));
-  let newPath = path.resolve(path.join(".", "binary", platform));
+  let newPath = path.resolve(path.join(".", "binary"));
   if (!fs.existsSync(newPath)) {
     fs.mkdirSync(newPath, { recursive: true });
   }
-  newPath = path.resolve(path.join(newPath, path.basename(releaseFile)));
+  newPath = path.resolve(path.join(newPath, `FITParser-${platform}.node`));
+  // newPath = path.resolve(path.join(newPath, path.basename(releaseFile)));
   console.log(oldPath, newPath);
 
   fs.copyFile(oldPath, newPath, function (err) {
