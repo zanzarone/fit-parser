@@ -246,10 +246,32 @@ Napi::String FITParser::FitModuleVersion(Napi::Env env)
     return Napi::String::New(env, VERSION);
 }
 
+Napi::Number FITParser::FitModuleDegreeToSemicircles(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    if(!info[0].IsNumber())
+        Napi::TypeError::New(env, "Not a number").ThrowAsJavaScriptException();
+    Napi:Number value = info[0].As<Napi::Number>();
+    double result = Utility::degreesToSemicircles(value.DoubleValue());
+    return Napi::Number::New(env, result);
+}
+
+Napi::Number FITParser::FitModuleSemicirclesToDegree(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    if(!info[0].IsNumber())
+        Napi::TypeError::New(env, "Not a number").ThrowAsJavaScriptException();
+    Napi:Number value = info[0].As<Napi::Number>();
+    double result = Utility::semicirclesToDegrees(value.Int32Value());
+    return Napi::Number::New(env, result);
+}
+
 Napi::Object FITParser::Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set("version",FITParser::FitModuleVersion(env));
     exports.Set("defines",FITParser::FitDefinesWrapped(env));
+    exports.Set("degreesToSemicircles", Napi::Function::New(env, FITParser::FitModuleDegreeToSemicircles) );
+    exports.Set("semicirclesToDegrees", Napi::Function::New(env, FITParser::FitModuleSemicirclesToDegree) );
     exports.Set("decodeFile", Napi::Function::New(env, FITParser::DecodeFileWrapped) );
     exports.Set("decodeFileAsync", Napi::Function::New(env, FITParser::DecodeFileAsyncWrapped) );
     exports.Set("decodeBuffer", Napi::Function::New(env, FITParser::DecodeBufferWrapped) );

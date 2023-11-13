@@ -18,6 +18,9 @@ namespace FITParser
     Napi::Object FitDefinesWrapped(Napi::Env env);
     /// N-API Export Version
     Napi::String FitModuleVersion(Napi::Env env);
+    // 
+    Napi::Number FitModuleSemicirclesToDegree(const Napi::CallbackInfo& info);
+    Napi::Number FitModuleDegreeToSemicircles(const Napi::CallbackInfo& info);
     /// N-API INITIALIZE
     Napi::Object Init(Napi::Env env, Napi::Object exports);
 }

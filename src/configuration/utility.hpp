@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "defines.hpp"
+#include <math.h>       /* pow */
 // #include "../nlohmann/json.hpp"
 
 // using JSON = nlohmann::json;
@@ -33,6 +34,14 @@ class Utility
         }
 
         return bytes;
+    }
+
+    static int32_t degreesToSemicircles(double degrees){
+        return (int32_t)((degrees *  pow (2.0, 31.0)) / 180.0 );
+    }
+
+    static double semicirclesToDegrees(int32_t semicircles){
+        return ((double) semicircles /  pow (2.0, 31.0)) * 180.0 ;
     }
 };
 #endif

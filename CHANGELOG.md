@@ -1,5 +1,7 @@
 ## 1.0.2.20231025
 
+    "node-addon-api": "^4.2.0",
+
 Changed the FIT JSON result.
 Before was:
 

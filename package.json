@@ -23,7 +23,7 @@
     "cli-color": "^2.0.1",
     "moment": "^2.29.1",
     "nan": "^2.14.0",
-    "node-addon-api": "^4.2.0",
+    "node-addon-api": "^7.0.0",
     "prompt-sync": "^4.2.0"
   }
 }

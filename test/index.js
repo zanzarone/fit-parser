@@ -9,10 +9,10 @@ const debugMsg = clc.xterm(14);
 const successMsg = clc.xterm(47);
 const prompt = require("prompt-sync")({ sigint: true });
 
-// const TEST_FILE1 = "./examples/Settings.fit";
 // const TEST_FILE1 =
 //   "/Users/samuele/Projects/Node/uploadServerJS/data/uploads/5edef77d490838ce/Settings.fit";
-const TEST_FILE1 = "/Users/samuele/Settings.fit";
+// const TEST_FILE1 = "/Users/samuele/Settings.fit";
+const TEST_FILE1 = "./private/2022_09_01_17_52_55.fit";
 const TEST_FILE2 = "./examples/Activity.fit";
 const TEST_FILE3 = "./examples/Activity.json";
 
@@ -60,7 +60,37 @@ function opt1Callback(err, fitString) {
     try {
       const FIT = JSON.parse(fitString);
       console.log(successMsg(`Successfully decoded ${TEST_FILE1}:`));
-      console.dir(FIT, { depth: null });
+      // console.dir(FIT, { depth: null });
+
+      let lat = null,
+        long = null;
+      try {
+        //? Parso il buffer con la mia bellissima libreria FitParser
+        //? leggo i record per cercare le coordinate
+        for (let i = FIT?.record?.msgs?.length - 1; i >= 0; i--) {
+          const record = FIT?.record?.msgs[i];
+          if (
+            record?.position_lat !== 0 &&
+            record?.position_long !== 0 &&
+            record?.position_lat !== fitModule.defines.FIT_SINT32_INVALID &&
+            record?.position_long !== fitModule.defines.FIT_SINT32_INVALID
+          ) {
+            lat = record.position_lat;
+            long = record.position_long;
+            break;
+          }
+        }
+      } catch (error) {
+        //? Non sono riuscito a parsare attivita'.
+        err("Error on activity parsing", JSON.stringify(error));
+        return;
+      }
+      if (lat && long) {
+        const lat_p = fitModule.semicirclesToDegrees(lat);
+        const long_p = fitModule.semicirclesToDegrees(long);
+        console.log(successMsg(`Successfully decoded ${lat} ${long}:`));
+        console.log(successMsg(`Successfully decoded ${lat_p} / ${fitModule.degreesToSemicircles(lat_p)} ${long_p}:`));
+      }
     } catch (error) {
       console.log(error);
     }
