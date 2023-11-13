@@ -1,6 +1,10 @@
+## 1.0.3.20231113
+
+added function to convert from/to semicircles.
+
 ## 1.0.2.20231025
 
-    "node-addon-api": "^4.2.0",
+<!-- "node-addon-api": "^4.2.0", -->
 
 Changed the FIT JSON result.
 Before was:
