@@ -295,16 +295,17 @@ The complete list is visible in the header ![a](res/icons8-file-16.png) `fit_pro
 
 ## Exported Defines
 
-Those are all the exported devices:
+To access the defines
 
 ```js
-    Object defines = Object::New(env);
-    defines.Set("FIT_BASE_TYPES", fitBaseTypes);
-    defines.Set("FIT_FILE_TYPES", fitFileTypes);
-    defines.Set("FIT_MESG_NUM", msgsNum);
-    defines.Set("SYSTEM_TIME_OFFSET_SEC", Napi::Number::New(env, SYSTEM_TIME_OFFSET_SEC));
-    return defines;
+fitModule.defines.VERSION;
+fitModule.defines.FIT_BASE_TYPES;
+fitModule.defines.FIT_FILE_TYPES;
+fitModule.defines.FIT_MESG_NUM;
+fitModule.defines.SYSTEM_TIME_OFFSET_SEC;
 ```
+
+where:
 
 ```c
   #define VERSION <current version>
