@@ -293,6 +293,68 @@ The complete list is visible in the header ![a](res/icons8-file-16.png) `fit_pro
 
 ---
 
+## Exported Defines
+
+To access the defines
+
+```js
+fitModule.defines.VERSION;
+fitModule.defines.FIT_BASE_TYPES;
+fitModule.defines.FIT_FILE_TYPES;
+fitModule.defines.FIT_MESG_NUM;
+fitModule.defines.SYSTEM_TIME_OFFSET_SEC;
+```
+
+where:
+
+```c
+  #define VERSION <current version>
+  #define SYSTEM_TIME_OFFSET_SEC 631065600
+  #define LEFT_RIGHT_BALANCE_100 100.0
+
+  #define FIT_ENUM_INVALID            ((FIT_ENUM)0xFF)
+  #define FIT_SINT8_INVALID           ((FIT_SINT8)0x7F)
+  #define FIT_UINT8_INVALID           ((FIT_UINT8)0xFF)
+  #define FIT_SINT16_INVALID          ((FIT_SINT16)0x7FFF)
+  #define FIT_UINT16_INVALID   ((FIT_UINT16)0xFFFF)
+  #define FIT_SINT32_INVALID   ((FIT_SINT32)0x7FFFFFFF)
+  #define FIT_UINT32_INVALID   ((FIT_UINT32)0xFFFFFFFF)
+  #define FIT_STRING_INVALID   ((FIT_STRING)0x00)
+  #define FIT_FLOAT32_INVALID   ((FIT_FLOAT32)*((FIT_FLOAT32*)::fit::baseTypeInvalids[FIT_BASE_TYPE_FLOAT32 & FIT_BASE_TYPE_NUM_MASK]))
+  #define FIT_FLOAT64_INVALID   ((FIT_FLOAT64)*((FIT_FLOAT64*)::fit::baseTypeInvalids[FIT_BASE_TYPE_FLOAT64 & FIT_BASE_TYPE_NUM_MASK]))
+  #define FIT_UINT8Z_INVALID   ((FIT_UINT8Z)0x00)
+  #define FIT_UINT16Z_INVALID   ((FIT_UINT16Z)0x0000)
+  #define FIT_UINT32Z_INVALID   ((FIT_UINT32Z)0x00000000)
+  #define FIT_BYTE_INVALID   ((FIT_BYTE)0xFF)
+  #define FIT_SINT64_INVALID   ((FIT_SINT64)0x7FFFFFFFFFFFFFFFL)
+  #define FIT_UINT64_INVALID   ((FIT_UINT64)0xFFFFFFFFFFFFFFFFL)
+  #define FIT_UINT64Z_INVALID   ((FIT_UINT64Z)0x0000000000000000L)
+
+  #define FIT_FILE_INVALID     0xFF
+  #define FIT_FILE_DEVICE      ((FIT_FILE)1)
+  #define FIT_FILE_SETTINGS    ((FIT_FILE)2)
+  #define FIT_FILE_SPORT       ((FIT_FILE)3)
+  #define FIT_FILE_ACTIVITY    ((FIT_FILE)4)
+  #define FIT_FILE_WORKOUT     ((FIT_FILE)5)
+  #define FIT_FILE_COURSE      ((FIT_FILE)6)
+  #define FIT_FILE_SCHEDULES   ((FIT_FILE)7)
+  #define FIT_FILE_WEIGHT      ((FIT_FILE)9)
+  #define FIT_FILE_TOTALS      ((FIT_FILE)10)
+  #define FIT_FILE_GOALS       ((FIT_FILE)11)
+  #define FIT_FILE_BLOOD_PRESSURE ((FIT_FILE)14)
+  #define FIT_FILE_MONITORING_A   ((FIT_FILE)15)
+  #define FIT_FILE_ACTIVITY_SUMMARY   ((FIT_FILE)20)
+  #define FIT_FILE_MONITORING_DAILY   ((FIT_FILE)28)
+  #define FIT_FILE_MONITORING_B       ((FIT_FILE)32)
+  #define FIT_FILE_SEGMENT            ((FIT_FILE)34)
+  #define FIT_FILE_SEGMENT_LIST       ((FIT_FILE)35)
+  #define FIT_FILE_EXD_CONFIGURATION  ((FIT_FILE)40)
+  #define FIT_FILE_MFG_RANGE_MIN      ((FIT_FILE)0xF7)
+  #define FIT_FILE_MFG_RANGE_MAX      ((FIT_FILE)0xFE)
+```
+
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
