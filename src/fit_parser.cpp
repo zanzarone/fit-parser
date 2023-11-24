@@ -223,7 +223,30 @@ Napi::Object FITParser::FitDefinesWrapped(Napi::Env env)
     fitBaseTypes.Set("FIT_SINT64_INVALID", FIT_SINT64_INVALID);
     fitBaseTypes.Set("FIT_UINT64_INVALID", FIT_UINT64_INVALID);
     fitBaseTypes.Set("FIT_UINT64Z_INVALID", FIT_UINT64Z_INVALID);
-    //
+    //======================    FIT_FILE    ====================================
+    Object fitFileTypes = Object::New(env);
+    fitFileTypes.Set("FIT_FILE_INVALID", FIT_FILE_INVALID);
+    fitFileTypes.Set("FIT_FILE_DEVICE", FIT_FILE_DEVICE);
+    fitFileTypes.Set("FIT_FILE_SETTINGS", FIT_FILE_SETTINGS);
+    fitFileTypes.Set("FIT_FILE_SPORT", FIT_FILE_SPORT);
+    fitFileTypes.Set("FIT_FILE_ACTIVITY", FIT_FILE_ACTIVITY);
+    fitFileTypes.Set("FIT_FILE_WORKOUT", FIT_FILE_WORKOUT);
+    fitFileTypes.Set("FIT_FILE_COURSE", FIT_FILE_COURSE);
+    fitFileTypes.Set("FIT_FILE_SCHEDULES", FIT_FILE_SCHEDULES);
+    fitFileTypes.Set("FIT_FILE_WEIGHT", FIT_FILE_WEIGHT);
+    fitFileTypes.Set("FIT_FILE_TOTALS", FIT_FILE_TOTALS);
+    fitFileTypes.Set("FIT_FILE_GOALS", FIT_FILE_GOALS);
+    fitFileTypes.Set("FIT_FILE_BLOOD_PRESSURE", FIT_FILE_BLOOD_PRESSURE);
+    fitFileTypes.Set("FIT_FILE_MONITORING_A", FIT_FILE_MONITORING_A);
+    fitFileTypes.Set("FIT_FILE_ACTIVITY_SUMMARY", FIT_FILE_ACTIVITY_SUMMARY);
+    fitFileTypes.Set("FIT_FILE_MONITORING_DAILY", FIT_FILE_MONITORING_DAILY);
+    fitFileTypes.Set("FIT_FILE_MONITORING_B", FIT_FILE_MONITORING_B);
+    fitFileTypes.Set("FIT_FILE_SEGMENT", FIT_FILE_SEGMENT);
+    fitFileTypes.Set("FIT_FILE_SEGMENT_LIST", FIT_FILE_SEGMENT_LIST);
+    fitFileTypes.Set("FIT_FILE_EXD_CONFIGURATION", FIT_FILE_EXD_CONFIGURATION);
+    fitFileTypes.Set("FIT_FILE_MFG_RANGE_MIN", FIT_FILE_MFG_RANGE_MIN);
+    fitFileTypes.Set("FIT_FILE_MFG_RANGE_MAX", FIT_FILE_MFG_RANGE_MAX);
+    //========================================================================
     Object msgsNum = Object::New(env);
     auto mesgs = fit::Profile::mesgs;
     int length = fit::Profile::MESG_INDEX::MESGS ;
@@ -236,6 +259,7 @@ Napi::Object FITParser::FitDefinesWrapped(Napi::Env env)
     }
     Object defines = Object::New(env);
     defines.Set("FIT_BASE_TYPES", fitBaseTypes);
+    defines.Set("FIT_FILE_TYPES", fitFileTypes);
     defines.Set("FIT_MESG_NUM", msgsNum);
     defines.Set("SYSTEM_TIME_OFFSET_SEC", Napi::Number::New(env, SYSTEM_TIME_OFFSET_SEC));
     return defines;
