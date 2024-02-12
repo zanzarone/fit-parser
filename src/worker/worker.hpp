@@ -6,6 +6,7 @@
 #include <strstream>
 #include "../configuration/defines.hpp"
 #include "../nlohmann/json.hpp"
+#include "../fit/fit.hpp"
 
 using namespace Napi;
 using JSON = nlohmann::json;
@@ -29,6 +30,7 @@ public:
         bool force = false;
         bool skipHeaders = false;
         bool rawValues = false;
+        fit::ProtocolVersion protoVersion = fit::ProtocolVersion::V20;
     } ;
     // 
     struct FileStream {

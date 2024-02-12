@@ -51,6 +51,20 @@ void Worker::AddOptions(Napi::Object*options)
             }
         }
     }
+    if(options->HasOwnProperty("version") && options->Get("version").IsNumber()){ //std::cout << "FORCE ()" << std::endl;
+        uint32_t v = options->Get("version").ToNumber().Uint32Value();
+        fit::ProtocolVersion ver = (fit::ProtocolVersion)v;
+        switch (ver)
+        {
+            case fit::ProtocolVersion::V10:
+            case fit::ProtocolVersion::V20:
+                this->options.protoVersion = ver;
+                break;
+            default:
+                this->options.protoVersion = fit::ProtocolVersion::V20;
+                break;
+        }
+    }
 }
 
 Worker::~Worker() {

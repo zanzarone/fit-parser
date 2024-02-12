@@ -1,6 +1,6 @@
 {
   "name": "fit-parser",
-  "version": "0.1.0",
+  "version": "1.0.3",
   "description": "A simple and useful node.js tool written in C++/JS using Node-API for decode/encode your FIT files.",
   "main": "./test/index.js",
   "gypfile": true,
