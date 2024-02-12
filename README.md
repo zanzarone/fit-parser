@@ -1,25 +1,58 @@
-# ![a](res/logo1.png)
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="res/logo1.png" alt="Logo">
+  </a>
+
+  <p align="center">
+    A simple and useful parser for decoding/encoding FIT files.
+    <br />
+    <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Overview</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
 
 A simple and useful `node.js` tool written in C++/JS using Node-API for decode/encode your FIT files.
 
-## Project goals
+<!-- GETTING STARTED -->
 
-The aim of this project is to have an up-to-date and fully customizable parser. Taking the advantage of [Node-API](https://duckduckgo.com), this tool interact directly with the C++ structures of the [Garmin&copy; FIT SDK](https://developer.garmin.com/fit/overview/).
-
-## Table of Contents
-
-1. [Prerequisites](#1-prerequisites)
-2. [Installation](#2-installation)
-3. [Development](#3-development)
-4. [Deployment](#4-deployment)
-5. [Run](#5-run)
-6. [Under development](#6-under-development)
-
----
-
-## 1) Prerequisites
+## Getting Started
 
 To compile the addon you need a toolchain that compile C and C++ code into a binary.
+
+### Prerequisites
 
 ![a](res/icons8-nodejs-16.png) **node**
 
@@ -47,9 +80,7 @@ For Windows developers there is nothing to do. The build tools system is now shi
 After developing process, to correctly deploying the addon, you need `node-gyp` build system installed.
 You can find all the information needed, [here](https://github.com/nodejs/node-gyp).
 
----
-
-## 2) Installation
+### Installation
 
 To install the others development packages, simply type into the terminal:
 
@@ -57,9 +88,9 @@ To install the others development packages, simply type into the terminal:
 npm install
 ```
 
----
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 3) Development
+### Project structure
 
 The core of the addon is inside the ![a](res/icons8-directory-16.png) **src** folder and it is structured like below:
 
@@ -77,9 +108,9 @@ The core of the addon is inside the ![a](res/icons8-directory-16.png) **src** fo
 - a Windows pc or
 - a Linux distribution with installed `wine` package.
 
----
+<!-- USAGE EXAMPLES -->
 
-## 4) Deployment
+### Build
 
 After the installation step you can build the addon module with the following command:
 
@@ -89,7 +120,7 @@ npm run build
 
 The command will produce the binary file inside the folder ![a](res/icons8-directory-16.png) <b>binary/{platform}/FITParser.node</b>.
 
-### Other commands
+**Other commands**
 
 - To build and then run the test, use:
 
@@ -115,13 +146,17 @@ The command will produce the binary file inside the folder ![a](res/icons8-direc
   npm run clean
   ```
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Pre/Post Scritps
 
 Content of the ![a](res/icons8-directory-16.png) **scripts** folder:
 
 - `post.js` - for moving the compiled module in the convenient folder ![a](res/icons8-directory-16.png) **binary**.
 
-## 5) Run
+<!-- USAGE EXAMPLES -->
+
+## Usage
 
 Include the module
 
