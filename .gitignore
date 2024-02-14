@@ -5,7 +5,8 @@ build
 output
 binary
 .vscode
-fit_*
+fit_srm_*
+fit_tbd_*
 .DS_Store
 private
 output
