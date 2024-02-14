@@ -1,3 +1,8 @@
+## 1.1.0.20240212
+
+- Finished encode features
+- Updated fit lib to FIT SDK 21.133
+
 ## 1.0.3.20231124
 
 - Exported `FIT_FILE_TYPES`
