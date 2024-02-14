@@ -6,7 +6,7 @@
 #include "../configuration/utility.hpp"
 
 Decoder::Decoder(Napi::Env &env, Buffer<uint8_t> &data, Object&options) : Worker(env, &options){
-    this->source = Source::MEMORY;
+    this->source = Source::BUFFER;
     this->bytesStream = new BytesStream();
     this->bytesStream->dataLength = data.Length();
     this->bytesStream->dataPtr = data.Data();
@@ -17,11 +17,11 @@ Decoder::Decoder(Napi::Env &env, std::string filepath,Object&options, Function &
     this->source = Source::FILE;
     this->fileStream = new FileStream();
     this->fileStream->file = nullptr;
-    this->fileStream->filePath = filepath;
+    this->filePath = filepath;
 }
 
 Decoder::Decoder(Napi::Env &env, Buffer<uint8_t> &data,Object&options,  Function &callback) : Worker(env, callback, &options) {
-    this->source = Source::MEMORY;
+    this->source = Source::BUFFER;
     this->bytesStream = new BytesStream();
     this->bytesStream->dataLength = data.Length();
     this->bytesStream->dataPtr = data.Data();
@@ -33,7 +33,7 @@ Decoder::Decoder(Napi::Env &env, std::string filepath, Object&options) : Worker(
     this->source = Source::FILE;
     this->fileStream = new FileStream();
     this->fileStream->file = nullptr;
-    this->fileStream->filePath = filepath;
+    this->filePath = filepath;
 }
 
 Decoder::~Decoder() 
@@ -230,11 +230,11 @@ void Decoder::Execute()
     switch(this->source){
         case Source::FILE:{
             this->fileStream->file = new std::fstream();
-            this->fileStream->file->open(this->fileStream->filePath, std::ios::in | std::ios::binary);
+            this->fileStream->file->open(this->filePath, std::ios::in | std::ios::binary);
             if (!this->fileStream->file->is_open())
             {
                 /// impossibilire aprire il file
-                const std::string error ="Cannot open file at path:" + this->fileStream->filePath ;//+ e.what();
+                const std::string error ="Cannot open file at path:" + this->filePath ;//+ e.what();
                 Worker::SetCustomError(StatusCode::COULD_NOT_OPEN,error);
                 this->SetError(error);
                 return;
@@ -242,7 +242,7 @@ void Decoder::Execute()
             this->Parse(this->fileStream->file);
             break;
         }
-        case Source::MEMORY:{
+        case Source::BUFFER:{
             std::vector<uint8_t> buffer;
             int length = (int)this->bytesStream->dataLength;
             for (int i = 0; i < length; ++i)
@@ -295,7 +295,7 @@ void Decoder::Destroy()
             delete this->fileStream->file;
             delete this->fileStream;
             break;
-        case Source::MEMORY: 
+        case Source::BUFFER: 
             // this->bytesStream->dataPtr non serve grazie al UNref viene deallocata da GC di Javascropt
             this->bytesStream->dataRef.Unref();
             delete this->bytesStream->bytes;

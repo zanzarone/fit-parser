@@ -32,7 +32,6 @@ public:
     void Execute();
 private:
     std::string jsonFileString;
-    std::string filePath;
 };
 
 

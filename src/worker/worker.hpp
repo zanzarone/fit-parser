@@ -21,7 +21,8 @@ class Worker : public AsyncWorker
 public:
     enum Source {
         FILE    = 0,
-        MEMORY,
+        BUFFER,
+        STRING,
     };
     //
     struct Options {
@@ -35,7 +36,6 @@ public:
     // 
     struct FileStream {
         std::fstream * file;
-        std::string filePath;
     } ;
     struct BytesStream {
         std::istrstream * bytes;
@@ -69,6 +69,7 @@ private:
     // Napi::Env env;
 public:
     Source source;
+    std::string filePath;
     FileStream * fileStream;
     BytesStream * bytesStream;
     Options options;

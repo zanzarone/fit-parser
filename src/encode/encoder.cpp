@@ -9,15 +9,16 @@
 #include "../configuration/utility.hpp"
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, std::string jsonFileString, Object&options, Function& callback) : Worker(env, callback, &options) {
-   this->source = Source::FILE;
+   this->source = Source::STRING;
    this->fileStream = new FileStream();
-   this->fileStream->filePath = filePath;
+   this->filePath = filePath;
    this->jsonFileString = jsonFileString;
 }
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, Buffer<uint8_t> &data, Object&options, Function& callback) : Worker(env, callback, &options) {
-   this->source = Source::MEMORY;
+   this->source = Source::BUFFER;
    this->bytesStream = new BytesStream();
+   this->filePath = filePath;
    this->bytesStream->dataLength = data.Length();
    this->bytesStream->dataPtr = data.Data();
    this->bytesStream->dataRef = ObjectReference::New(data, 1);
@@ -25,16 +26,17 @@ Encoder::Encoder(Napi::Env &env,std::string filePath, Buffer<uint8_t> &data, Obj
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, std::string jsonFileString, Object&options): Worker(env, &options)
 {
-   this->source = Source::FILE;
+   this->source = Source::STRING;
    this->fileStream = new FileStream();
-   this->fileStream->filePath = filePath;
+   this->filePath = filePath;
    this->jsonFileString = jsonFileString;
 }
 
 Encoder::Encoder(Napi::Env &env,std::string filePath, Buffer<uint8_t> &data, Object&options) : Worker(env, &options)
 {
-   this->source = Source::MEMORY;
+   this->source = Source::BUFFER;
    this->bytesStream = new BytesStream();
+   this->filePath = filePath;
    this->bytesStream->dataLength = data.Length();
    this->bytesStream->dataPtr = data.Data();
    this->bytesStream->dataRef = ObjectReference::New(data, 1);
@@ -178,13 +180,15 @@ void Encoder::EnumerateFields(fit::Mesg * fitMesg, JSON fields)
 
 void Encoder::Execute() 
 {
+            std::cout << "Encoder 0" << std::endl;
    std::fstream file;
    try
    {
-      file.open(this->fileStream->filePath, std::ios::in | std::ios::out | std::ios::binary | std::ios::trunc);
+      std::cout << "Encoder a" << std::endl;
+      file.open(this->filePath, std::ios::in | std::ios::out | std::ios::binary | std::ios::trunc);
       if (!file.is_open())
       {
-         const std::string error ="Cannot open file at path:" + this->fileStream->filePath ;//+ e.what();
+         const std::string error ="Cannot open file at path:" + this->filePath ;//+ e.what();
          Worker::SetCustomError(StatusCode::COULD_NOT_OPEN,error);
          this->SetError(error);
          return;
@@ -192,25 +196,30 @@ void Encoder::Execute()
    }
    catch(const std::exception& e)
    {
+      std::cout << "Encoder c" << std::endl;
       const std::string error ="Error opening file:" + std::string(e.what());
       Worker::SetCustomError(StatusCode::COULD_NOT_OPEN, error);
       this->SetError(error);   
       return;   
    }
+
+   std::cout << "Encoder 00" << std::endl;
    
    JSON fileObject;
    try
    {
       switch(this->source)
       {
-         case Source::FILE: {
+         case Source::STRING: {
             // parsing input with a syntax error
             fileObject = JSON::parse(this->jsonFileString);
             break;
          }
-         case Source::MEMORY: {
+         case Source::BUFFER: {
+            std::cout << "Encoder 1" << std::endl;
             std::vector<uint8_t> buffer;
             int length = (int)this->bytesStream->dataLength;
+            std::cout << "Encoder 2" << std::endl;
             for (int i = 0; i < length; ++i)
             {
                uint8_t value = *(this->bytesStream->dataPtr + i);
@@ -331,11 +340,11 @@ void Encoder::Destroy()
    //  std::cout << "Encoder Destroy()" << std::endl;
     switch(this->source)
     {
-        case Source::FILE: 
+        case Source::STRING: 
             delete this->fileStream;
             /// non devo fare niente
             break;
-        case Source::MEMORY: 
+        case Source::BUFFER: 
             // this->bytesStream->dataPtr non serve grazie al UNref viene deallocata da GC di Javascropt
             this->bytesStream->dataRef.Unref();
             delete this->bytesStream->bytes;

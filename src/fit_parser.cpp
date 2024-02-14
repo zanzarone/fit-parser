@@ -97,7 +97,7 @@ Napi::Value FITParser::DecodeBufferAsyncWrapped(const Napi::CallbackInfo& info)
     return promise;
 }
 
-Napi::String FITParser::EncodeFileWrapped(const Napi::CallbackInfo& info)
+Napi::String FITParser::EncodeJsonWrapped(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::Object options = Object::New(env);
@@ -127,7 +127,7 @@ Napi::String FITParser::EncodeFileWrapped(const Napi::CallbackInfo& info)
     return String::New(info.Env(),msg.c_str());
 }
 
-Napi::Value FITParser::EncodeFileAsyncWrapped(const Napi::CallbackInfo& info)
+Napi::Value FITParser::EncodeJsonAsyncWrapped(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::Object options = Object::New(env);
@@ -300,9 +300,9 @@ Napi::Object FITParser::Init(Napi::Env env, Napi::Object exports)
     exports.Set("decodeFileAsync", Napi::Function::New(env, FITParser::DecodeFileAsyncWrapped) );
     exports.Set("decodeBuffer", Napi::Function::New(env, FITParser::DecodeBufferWrapped) );
     exports.Set("decodeBufferAsync", Napi::Function::New(env, FITParser::DecodeBufferAsyncWrapped) );
-    exports.Set("encodeJSONToFile", Napi::Function::New(env, FITParser::EncodeFileWrapped) );
-    exports.Set("encodeJSONToFileAsync", Napi::Function::New(env, FITParser::EncodeFileAsyncWrapped) );
-    exports.Set("encodeBufferToFile", Napi::Function::New(env, FITParser::EncodeBufferWrapped) );
-    exports.Set("encodeBufferToFileAsync", Napi::Function::New(env, FITParser::EncodeBufferAsyncWrapped) );
+    exports.Set("encodeJsonToFile", Napi::Function::New(env, FITParser::EncodeJsonWrapped) );
+    exports.Set("encodeJsonToFileAsync", Napi::Function::New(env, FITParser::EncodeJsonAsyncWrapped) );
+    exports.Set("encodeJsonBufferToFile", Napi::Function::New(env, FITParser::EncodeBufferWrapped) );
+    exports.Set("encodeJsonBufferToFileAsync", Napi::Function::New(env, FITParser::EncodeBufferAsyncWrapped) );
     return exports;
 }

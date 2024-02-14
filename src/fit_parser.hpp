@@ -9,8 +9,8 @@ namespace FITParser
     Napi::String DecodeBufferWrapped(const Napi::CallbackInfo& info);
     Napi::Value DecodeBufferAsyncWrapped(const Napi::CallbackInfo& info);
     /// Encode FIT from a File
-    Napi::String EncodeFileWrapped(const Napi::CallbackInfo& info);
-    Napi::Value EncodeFileAsyncWrapped(const Napi::CallbackInfo& info);
+    Napi::String EncodeJsonWrapped(const Napi::CallbackInfo& info);
+    Napi::Value EncodeJsonAsyncWrapped(const Napi::CallbackInfo& info);
     /// Encode FIT from a Buffer
     Napi::String EncodeBufferWrapped(const Napi::CallbackInfo& info);
     Napi::Value EncodeBufferAsyncWrapped(const Napi::CallbackInfo& info);
